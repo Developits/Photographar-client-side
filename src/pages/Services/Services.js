@@ -3,14 +3,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ServiceCard from "./ServiceCard";
 
-const Services = () => {
+const Services = ({ api }) => {
   const [services, setServices] = useState([]);
-
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch(`http://localhost:5000/${api}`)
       .then((res) => res.json())
       .then((data) => setServices(data));
-  }, []);
+  }, [api]);
   return (
     <div>
       <div className="text-center mt-16 mb-16">

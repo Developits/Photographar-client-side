@@ -1,11 +1,22 @@
 import React from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import { useNavigate } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
-  const { img, price, title, description, rating } = service;
+  const { _id, img, price, title, description, rating } = service;
+  const navigate = useNavigate();
+
+  const handleDetails = () => {
+    navigate(`/services/${_id}`);
+  };
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>
-        <img src={img} alt="Shoes" />
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <img src={img} alt="Shoes" />
+          </PhotoView>
+        </PhotoProvider>
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
@@ -15,7 +26,9 @@ const ServiceCard = ({ service }) => {
           <div>Ratings: {rating}</div>
         </div>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Details</button>
+          <button onClick={handleDetails} className="btn btn-primary">
+            Details
+          </button>
         </div>
       </div>
     </div>
