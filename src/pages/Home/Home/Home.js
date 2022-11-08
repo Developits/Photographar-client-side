@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../Banner/Banner";
-import Gallery from "../../../../../reza-photography-server/Gallery/Gallery";
+import Gallery from "../Gallery/Gallery";
 import About from "../../../../../reza-photography-server/About/About";
 
 const Home = () => {
