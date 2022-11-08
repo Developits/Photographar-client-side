@@ -1,5 +1,6 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import { useNavigate } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
@@ -14,7 +15,7 @@ const ServiceCard = ({ service }) => {
       <figure>
         <PhotoProvider>
           <PhotoView src={img}>
-            <img src={img} alt="Shoes" />
+            <img src={img} alt="" />
           </PhotoView>
         </PhotoProvider>
       </figure>

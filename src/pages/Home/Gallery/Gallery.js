@@ -17,47 +17,46 @@ const Gallery = () => {
             <div className="flex flex-wrap w-1/2">
               <div className="w-1/2 p-1 md:p-2">
                 <img
-                  alt="gallery"
+                  alt="Weeding photography"
                   className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(70).webp"
+                  src="https://images.pexels.com/photos/948185/pexels-photo-948185.jpeg?auto=compress&cs=tinysrgb&w=600"
                 />
               </div>
               <div className="w-1/2 p-1 md:p-2">
                 <img
-                  alt="gallery"
+                  alt="fashion photography"
                   className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  src="https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=600"
                 />
-                <p>New born photo</p>
               </div>
               <div className="w-full p-1 md:p-2">
                 <img
-                  alt="gallery"
+                  alt="Newborn photography"
                   className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                  src="https://images.pexels.com/photos/7973662/pexels-photo-7973662.jpeg?auto=compress&cs=tinysrgb&w=600"
                 />
               </div>
             </div>
             <div className="flex flex-wrap w-1/2">
               <div className="w-full p-1 md:p-2">
                 <img
-                  alt="gallery"
+                  alt="Portrait photograph"
                   className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp"
+                  src="https://images.pexels.com/photos/3788039/pexels-photo-3788039.jpeg?auto=compress&cs=tinysrgb&w=600"
                 />
               </div>
               <div className="w-1/2 p-1 md:p-2">
                 <img
-                  alt="gallery"
+                  alt="family"
                   className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp"
+                  src="https://images.pexels.com/photos/1456951/pexels-photo-1456951.jpeg?auto=compress&cs=tinysrgb&w=600"
                 />
               </div>
               <div className="w-1/2 p-1 md:p-2">
                 <img
-                  alt="gallery"
+                  alt="commercial photography"
                   className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp"
+                  src="https://images.pexels.com/photos/2808402/pexels-photo-2808402.jpeg?auto=compress&cs=tinysrgb&w=600"
                 />
               </div>
             </div>

@@ -3,6 +3,7 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithPopup,
+  updateProfile,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -31,9 +32,9 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // const updateUserProfile = (profile) => {
-  //   return updateProfile(auth.currentUser, profile);
-  // };
+  const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
+  };
 
   const logOut = () => {
     setLoading(true);
@@ -42,9 +43,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser === null) {
-        setUser(currentUser);
-      }
+      setUser(currentUser);
       setLoading(false);
     });
 
@@ -61,7 +60,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     signIn,
     logOut,
-    // updateUserProfile,
+    updateUserProfile,
   };
 
   return (

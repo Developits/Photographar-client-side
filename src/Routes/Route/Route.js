@@ -1,5 +1,7 @@
 import React from "react";
 import Home from "../../pages/Home/Home/Home";
+import Register from "../../pages/Register/Register";
+import Login from "../../pages/Login/Login";
 import Services from "../../pages/Services/Services";
 import ServiceDetails from "../../pages/Services/ServiceDetails";
 import Main from "../../layout/Main";
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
           return fetch(`http://localhost:5000/servicesall/${params.id}`);
         },
         element: <ServiceDetails></ServiceDetails>,
+      },
+      {
+        path: "/Register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
       {
         path: "/blog",
