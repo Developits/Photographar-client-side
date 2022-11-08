@@ -1,9 +1,14 @@
 import React from "react";
+import Banner from "../Banner/Banner";
+import Gallery from "../../../../../reza-photography-server/Gallery/Gallery";
+import About from "../../../../../reza-photography-server/About/About";
 
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <Banner></Banner>
+      <Gallery></Gallery>
+      <About></About>
     </div>
   );
 };
