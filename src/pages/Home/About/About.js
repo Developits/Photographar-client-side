@@ -2,7 +2,7 @@ import React from "react";
 
 const Quote = () => {
   return (
-    <div className="hero  min-h-screen ">
+    <div className="hero mt-16  min-h-screen ">
       <div className="hero-content flex-col lg:flex-row">
         <img
           src="https://images.pexels.com/photos/1484771/pexels-photo-1484771.jpeg?auto=compress&cs=tinysrgb&w=600"

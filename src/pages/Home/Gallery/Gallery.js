@@ -3,8 +3,8 @@ import React from "react";
 const Gallery = () => {
   return (
     <div>
-      <div className="text-center">
-        <h1 className="mt-5 text-2xl font-bold">PHOTOGRAPHY GENRES</h1>
+      <div className="text-center mt-16">
+        <h1 className="text-2xl font-bold">PHOTOGRAPHY GENRES</h1>
         <p className="">
           I would like to give you a unique photography experience,
           <br /> built to serve you best and capture your special moments for
