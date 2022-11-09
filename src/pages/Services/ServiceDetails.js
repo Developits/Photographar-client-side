@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import Review from "../MyReviews/Review";
 
@@ -9,20 +9,6 @@ const ServiceDetails = () => {
   const { _id, title, img, description, price, rating } = details;
 
   const [reviews, setReviews] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/reviews")
-      .then((res) => res.json())
-      .then((data) => setReviews(data));
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center">
-        <button className="btn btn-lg btn-ghost loading"></button>
-      </div>
-    );
-  }
 
   const handleAddReview = (event) => {
     event.preventDefault();
@@ -40,7 +26,7 @@ const ServiceDetails = () => {
       rating,
       description,
     };
-    fetch(`http://localhost:5000/reviews/${_id}`, {
+    fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,6 +43,20 @@ const ServiceDetails = () => {
       })
       .catch((er) => console.error(er));
   };
+
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center">
+        <button className="btn btn-lg btn-ghost loading"></button>
+      </div>
+    );
+  }
   return (
     <div>
       {/* Service details section */}
@@ -87,7 +87,9 @@ const ServiceDetails = () => {
           ))}
         </div>
       </div>
-
+      <button className="btn btn-primary">
+        <Link to="/review">Add review</Link>
+      </button>
       {/* review section */}
       <div className="w-1/2 mt-16 mx-auto">
         <h1 className="text-3xl text-center font-bold">

@@ -9,6 +9,7 @@ import Main from "../../layout/Main";
 import Blog from "../../pages/Blog/Blog";
 import MyReviews from "../../pages/MyReviews/MyReviews";
 import AddService from "../../pages/AddService/AddService";
+import AddReview from "../../pages/AddReview/AddReview";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -57,6 +58,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/review",
+        element: (
+          <PrivateRoute>
+            <AddReview></AddReview>
           </PrivateRoute>
         ),
       },
