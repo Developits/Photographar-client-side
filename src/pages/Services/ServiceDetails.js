@@ -1,12 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import Review from "../MyReviews/Review";
 
 const ServiceDetails = () => {
   const details = useLoaderData();
   const { user, loading } = useContext(AuthContext);
-  console.log(user);
   const { _id, title, img, description, price, rating } = details;
+
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
 
   if (loading) {
     return (
@@ -68,9 +76,20 @@ const ServiceDetails = () => {
           </div>
         </div>
       </div>
+      {/* reviews showdown section */}
+      <div className="mt-16">
+        <h1 className="text-3xl mb-5 text-center font-bold">
+          Review from happy clients
+        </h1>
+        <div>
+          {reviews.map((review) => (
+            <Review key={review._id} review={review}></Review>
+          ))}
+        </div>
+      </div>
 
       {/* review section */}
-      <div className="w-1/2 mx-auto">
+      <div className="w-1/2 mt-16 mx-auto">
         <h1 className="text-3xl text-center font-bold">
           Please, Add your valuable review.
         </h1>
