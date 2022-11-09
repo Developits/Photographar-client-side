@@ -70,34 +70,41 @@ const ServiceDetails = () => {
               <div>Price: {price} $</div>
               <div>Ratings: {rating}</div>
             </div>
-            <div className="text-center">
-              <button className="btn btn-accent">Add service</button>
-            </div>
           </div>
         </div>
       </div>
       {/* reviews showdown section */}
-      <div className="mt-16">
-        <h1 className="text-3xl mb-5 text-center font-bold">
-          Review from happy clients
-        </h1>
-        <div className="mt-6">
-          {reviews.map((review) => (
-            <div className="card w-3/4 mx-auto mt-6 bg-base-300 shadow-xl">
-              <div className="card-body items-center text-center">
-                <div className="avatar">
-                  <div className="w-24 rounded-full">
-                    <img src={review.img} alt="" />
+
+      <>
+        {reviews.length < 1 ? (
+          <></>
+        ) : (
+          <div className="mt-16">
+            <h1 className="text-3xl mb-5 text-center font-bold">
+              Review from happy clients
+            </h1>
+            <div className="mt-6">
+              {reviews.map((review) => (
+                <div
+                  key={review._id}
+                  className="card w-3/4 mx-auto mt-6 bg-base-300 shadow-xl"
+                >
+                  <div className="card-body items-center text-center">
+                    <div className="avatar">
+                      <div className="w-24 rounded-full">
+                        <img src={review.img} alt="" />
+                      </div>
+                    </div>
+                    <h2 className="card-title">{review.name}</h2>
+                    <p>rating: {review.rating}</p>
+                    <p>{review.description}</p>
                   </div>
                 </div>
-                <h2 className="card-title">{review.name}</h2>
-                <p>rating: {review.rating}</p>
-                <p>{review.description}</p>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        )}
+      </>
 
       {/* review section */}
 
@@ -141,13 +148,13 @@ const ServiceDetails = () => {
             </form>
           </div>
         ) : (
-          <div className="my-16">
-            <h1 className="text-3xl text-center font-bold">
-              You need to login first to add reviews.Goto
-              <Link className="text-red-600" to="/login">
-                Login
-              </Link>
+          <div className="my-16 text-center">
+            <h1 className="text-3xl  font-bold">
+              Please login to add a review.
             </h1>
+            <button className="btn btn-primary">
+              <Link to="/login">Login</Link>
+            </button>
           </div>
         )}
       </>

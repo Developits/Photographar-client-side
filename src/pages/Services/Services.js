@@ -23,7 +23,7 @@ const Services = ({ api }) => {
     );
   }
   return (
-    <div>
+    <div className="grid grid-cols-1 min-h-screen">
       <div className="text-center mt-16 mb-16">
         <h2 className="text-5xl mb-4 text-orange-600 font-semibold">
           Our Services

@@ -9,19 +9,11 @@ import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
   useTitle("Register");
-  const { createUser, loading, updateUserProfile, providerLogin } =
+  const { createUser, updateUserProfile, setLoading, providerLogin } =
     useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center">
-        <button className="btn btn-lg btn-ghost loading"></button>
-      </div>
-    );
-  }
 
   const from = location.state?.from?.pathname || "/";
 
@@ -45,6 +37,9 @@ const Register = () => {
         console.error(error);
         const errorMessage = error.message;
         setError(errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -92,7 +87,7 @@ const Register = () => {
   };
 
   return (
-    <div className="w-1/2 mx-auto">
+    <div className="w-1/2 grid grid-cols-1 min-h-screen mx-auto">
       <h1 className="text-3xl text-center font-bold">Please Register</h1>
       <form onSubmit={handleSubmit} className="card-body">
         <div className="form-control">
