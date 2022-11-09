@@ -49,6 +49,16 @@ const Header = () => {
             {user?.uid ? (
               <>
                 <li>
+                  <Link className="font-bold" to="/addservice">
+                    Add service
+                  </Link>
+                </li>
+                <li>
+                  <Link className="font-bold" to="/myreviews">
+                    My reviews
+                  </Link>
+                </li>
+                <li>
                   <Link className="font-bold" onClick={handleLogOut}>
                     LogOut
                   </Link>
