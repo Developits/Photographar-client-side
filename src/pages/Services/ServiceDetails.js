@@ -40,7 +40,7 @@ const ServiceDetails = () => {
       rating,
       description,
     };
-    fetch("http://localhost:5000/reviews", {
+    fetch(`http://localhost:5000/reviews/${_id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
