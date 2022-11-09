@@ -5,13 +5,23 @@ import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
-  const { createUser, updateUserProfile, providerLogin } =
+  useTitle("Register");
+  const { createUser, loading, updateUserProfile, providerLogin } =
     useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center">
+        <button className="btn btn-lg btn-ghost loading"></button>
+      </div>
+    );
+  }
 
   const from = location.state?.from?.pathname || "/";
 

@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import Review from "../MyReviews/Review";
+import useTitle from "../../hooks/useTitle";
 
 const ServiceDetails = () => {
+  useTitle("Service Details");
   const details = useLoaderData();
   const { user, loading } = useContext(AuthContext);
   const { _id, title, img, description, price, rating } = details;
-
   const [reviews, setReviews] = useState([]);
 
   const handleAddReview = (event) => {
@@ -45,10 +45,10 @@ const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(`http://localhost:5000/servicereviews/${_id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, []);
+  }, [_id]);
 
   if (loading) {
     return (
@@ -81,49 +81,76 @@ const ServiceDetails = () => {
         <h1 className="text-3xl mb-5 text-center font-bold">
           Review from happy clients
         </h1>
-        <div>
+        <div className="mt-6">
           {reviews.map((review) => (
-            <Review key={review._id} review={review}></Review>
+            <div className="card w-3/4 mx-auto mt-6 bg-base-300 shadow-xl">
+              <div className="card-body items-center text-center">
+                <div className="avatar">
+                  <div className="w-24 rounded-full">
+                    <img src={review.img} alt="" />
+                  </div>
+                </div>
+                <h2 className="card-title">{review.name}</h2>
+                <p>rating: {review.rating}</p>
+                <p>{review.description}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
-      <button className="btn btn-primary">
-        <Link to="/review">Add review</Link>
-      </button>
+
       {/* review section */}
-      <div className="w-1/2 mt-16 mx-auto">
-        <h1 className="text-3xl text-center font-bold">
-          Please, Add your valuable review.
-        </h1>
-        <form onSubmit={handleAddReview} className="card-body">
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Write your opinion</span>
-            </label>
-            <textarea
-              name="message"
-              className="textarea textarea-bordered h-24 w-full"
-              placeholder="Your opinion"
-              required
-            ></textarea>
+
+      <>
+        {user?.uid ? (
+          <div className="w-1/2 mt-16 mx-auto">
+            <h1 className="text-3xl text-center font-bold">
+              Please, Add your valuable review.
+            </h1>
+            <form onSubmit={handleAddReview} className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Write your opinion</span>
+                </label>
+                <textarea
+                  name="message"
+                  className="textarea textarea-bordered h-24 w-full"
+                  placeholder="Your opinion"
+                  required
+                ></textarea>
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Rating</span>
+                </label>
+                <input
+                  type="text"
+                  name="rate"
+                  placeholder="Rating"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control mt-2">
+                <input
+                  className="btn btn-primary"
+                  type="submit"
+                  value="Submit"
+                />
+              </div>
+            </form>
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Rating</span>
-            </label>
-            <input
-              type="text"
-              name="rate"
-              placeholder="Rating"
-              className="input input-bordered"
-              required
-            />
+        ) : (
+          <div className="my-16">
+            <h1 className="text-3xl text-center font-bold">
+              You need to login first to add reviews.Goto
+              <Link className="text-red-600" to="/login">
+                Login
+              </Link>
+            </h1>
           </div>
-          <div className="form-control mt-2">
-            <input className="btn btn-primary" type="submit" value="Submit" />
-          </div>
-        </form>
-      </div>
+        )}
+      </>
     </div>
   );
 };

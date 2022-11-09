@@ -4,8 +4,10 @@ import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 import About from "../About/About";
 import Services from "../../Services/Services";
+import useTitle from "../../../hooks/useTitle";
 
 const Home = () => {
+  useTitle("Home");
   return (
     <div>
       <Banner></Banner>

@@ -15,7 +15,7 @@ const Header = () => {
       <div className="flex-1">
         <div className="flex flex-col text-center">
           <div>
-            <Link className="btn btn-ghost normal-case text-xl">
+            <Link to="/" className="btn btn-ghost normal-case text-xl">
               <img
                 className="w-9 h-9"
                 src="https://cdn4.iconfinder.com/data/icons/camera-7/60/08_Camera_Rotation-512.png"

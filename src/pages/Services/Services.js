@@ -2,8 +2,10 @@ import React from "react";
 import { useEffect, useState, useContext } from "react";
 import ServiceCard from "./ServiceCard";
 import { AuthContext } from "../../contexts/AuthContext";
+import useTitle from "../../hooks/useTitle";
 
 const Services = ({ api }) => {
+  useTitle("Services");
   const [services, setServices] = useState([]);
   const { loading } = useContext(AuthContext);
 

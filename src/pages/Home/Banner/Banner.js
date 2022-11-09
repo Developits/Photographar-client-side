@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Carousel = () => {
   return (
@@ -17,7 +18,9 @@ const Carousel = () => {
             have caught on film is captured forever... it remembers little
             things, long after you have forgotten everything.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="btn btn-primary">
+            <Link to="/services">Get in touch</Link>
+          </button>
         </div>
       </div>
     </div>
