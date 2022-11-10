@@ -15,16 +15,16 @@ const ServiceCard = ({ service }) => {
       <figure>
         <PhotoProvider>
           <PhotoView src={img}>
-            <img src={img} alt="" />
+            <img className="w-full h-60 rounded" src={img} alt="" />
           </PhotoView>
         </PhotoProvider>
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p>{description.slice(0, 100)} ....read more</p>
-        <div>
-          <div>Price: {price} $</div>
-          <div>Ratings: {rating}</div>
+        <div className="flex justify-center item-center">
+          <p>Price: {price} $</p>
+          <p>Ratings: {rating}</p>
         </div>
         <div className="card-actions justify-end">
           <button onClick={handleDetails} className="btn btn-primary">

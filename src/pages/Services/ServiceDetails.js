@@ -9,6 +9,7 @@ const ServiceDetails = () => {
   const { user, loading } = useContext(AuthContext);
   const { _id, title, img, description, price, rating } = details;
   const [reviews, setReviews] = useState([]);
+  const [reviewId, setReviewId] = useState(1);
 
   const handleAddReview = (event) => {
     event.preventDefault();
@@ -21,6 +22,7 @@ const ServiceDetails = () => {
     const review = {
       serviceId: _id,
       customerId: uid,
+      reviewId: reviewId,
       img: photoURL,
       name: displayName,
       rating,
@@ -39,6 +41,8 @@ const ServiceDetails = () => {
         if (data.acknowledged) {
           alert("Review added successfully");
           form.reset();
+          const newReviewId = reviewId + 1;
+          setReviewId(newReviewId);
         }
       })
       .catch((er) => console.error(er));
@@ -48,7 +52,7 @@ const ServiceDetails = () => {
     fetch(`http://localhost:5000/servicereviews/${_id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, [_id]);
+  }, [_id, reviews]);
 
   if (loading) {
     return (
