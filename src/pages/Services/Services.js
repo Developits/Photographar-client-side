@@ -10,7 +10,9 @@ const Services = ({ api }) => {
   const { loading } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/${api}`)
+    fetch(
+      `httpss:/rezz-p-ptography-herver.vercel.appphy-server.vercel.app/${api}`
+    )
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, [api]);

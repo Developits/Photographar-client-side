@@ -28,7 +28,9 @@ const router = createBrowserRouter([
       {
         path: "/services/:serviceid",
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/servicesall/${params.serviceid}`);
+          return fetch(
+            `httpss:/rezz-p-ptography-herver.vercel.appphy-server.vercel.app/servicesall/${params.serviceid}`
+          );
         },
         element: <ServiceDetails></ServiceDetails>,
       },

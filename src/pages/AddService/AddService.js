@@ -20,13 +20,16 @@ const AddService = () => {
       price,
       rating,
     };
-    fetch("http://localhost:5000/services", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(service),
-    })
+    fetch(
+      "httpss:/rezz-p-ptography-herver.vercel.appphy-server.vercel.app/services",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(service),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

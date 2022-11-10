@@ -8,7 +8,7 @@ const MyReviews = () => {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/userreviews/${user.uid}`)
+    fetch(`https://reza-photography-server.vercel.app/userreviews/${user.uid}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [user, reviews]);
@@ -18,7 +18,7 @@ const MyReviews = () => {
       "Are you sure, you want to cancel this order"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://reza-photography-server.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -38,7 +38,7 @@ const MyReviews = () => {
     const description = form.message.value;
     const rating = parseFloat(form.rate.value).toFixed(1);
 
-    fetch(`http://localhost:5000/reviews/${review._id}`, {
+    fetch(`https://reza-photography-server.vercel.app/reviews/${review._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
